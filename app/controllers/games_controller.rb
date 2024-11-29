@@ -38,6 +38,15 @@ class GamesController < ApplicationController
   # O controller update serve para inserir dados nos jogos apenas para fins de teste
   def update
     game = Game.find(params[:id])
+    if game.update(game_params)
+      render json: game, status: :ok
+    end
+  end
+
+  # O controller game_logic serve para verificar o vencedor
+  def game_logic
+    game = Game.find(params[:id])
+    game.verify_winner
     render json: game, status: :ok
   end
 
