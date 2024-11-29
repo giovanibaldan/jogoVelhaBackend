@@ -1,35 +1,37 @@
 class Game < ApplicationRecord
+  # Método para resetar o jogo
   def reset
     self.winner = ""
-    self.game_state = []
+    self.game_state = ["", "", "", "", "", "", "", "", ""]
     save
   end
 
   # Tentativa de usar o principio Single Responsibility Principle
-  # Lógica principal para verificar o vencedor
+  # Método principal para verificar o vencedor
   def verify_winner
-    if game_state.count { |cell| cell != "" } >= 5
-      verify_column
-      verify_row
-      verify_diagonal
-      verify_draw
-      save
-    else
+    verify_column
+    verify_row
+    verify_diagonal
+    verify_draw
+    verify_abandoned
+    save
+  end
+
+  # Método para verificar se o jogo foi iniciado e não finalizado
+  def verify_abandoned
+    if game_state.count { |cell| cell != "" } < 5
       self.winner = ""
     end
   end
 
-  # Lógica para verificar o empate
+  # Método para verificar o empate
   def verify_draw
-    # verify_column
-    # verify_row
-    # verify_diagonal
     if winner == "" && game_state.all? { |cell| cell != "" }
       self.winner = "Draw"
     end
   end
 
-  # Lógica para verificar a coluna
+  # Método para verificar a coluna
   def verify_column
     (0..2).each do |i|
       if game_state[i] == game_state[i + 3] && game_state[i] == game_state[i + 6] && game_state[i] != ""
@@ -38,7 +40,7 @@ class Game < ApplicationRecord
     end
   end
 
-  # Lógica para verificar a linha
+  # Método para verificar a linha
   def verify_row
     (0..2).each do |i|
       if game_state[i * 3] == game_state[i * 3 + 1] && game_state[i * 3] == game_state[i * 3 + 2] && game_state[i * 3] != ""
@@ -47,7 +49,7 @@ class Game < ApplicationRecord
     end
   end
 
-  # Lógica para verificar a diagonal
+  # Método para verificar a diagonal
   def verify_diagonal
     if game_state[0] == game_state[4] && game_state[0] == game_state[8] && game_state[0] != ""
       self.winner = game_state[0]

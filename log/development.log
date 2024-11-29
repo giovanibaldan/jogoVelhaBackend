@@ -1873,3 +1873,49 @@ Processing by GamesController#show_game_state as */*
 Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 3718)
 
 
+Started GET "/games/4/" for ::1 at 2024-11-29 15:17:06 -0300
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:9:in `show'
+Completed 200 OK in 38ms (Views: 0.8ms | ActiveRecord: 10.5ms | Allocations: 7870)
+
+
+Started PATCH "/games/4/game_logic" for ::1 at 2024-11-29 15:19:27 -0300
+Processing by GamesController#game_logic as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:48:in `game_logic'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/game.rb:16:in `verify_winner'
+  [1m[36mGame Update (0.4ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["winner", ""], ["updated_at", "2024-11-29 18:19:27.379432"], ["id", 4]]
+  ↳ app/models/game.rb:16:in `verify_winner'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/game.rb:16:in `verify_winner'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 6.4ms | Allocations: 5840)
+
+
+Started GET "/games/4/" for ::1 at 2024-11-29 15:19:34 -0300
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:9:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 676)
+
+
+Started GET "/games/4/" for ::1 at 2024-11-29 15:20:36 -0300
+Processing by GamesController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:9:in `show'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.7ms | Allocations: 3937)
+
+
+Started PATCH "/games/4/game_logic" for ::1 at 2024-11-29 15:20:43 -0300
+Processing by GamesController#game_logic as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:48:in `game_logic'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 876)
+
+
