@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Comando Ruby etc
+
+- docker compose up --build
+subir a aplicação
+
+- rails db:create
+criar uma migrate
+
+- rails db:migrate
+subir as novas migrates
+
+- rails db:rollback
+desfazer as últimas migrates no scheema

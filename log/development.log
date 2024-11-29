@@ -1,0 +1,754 @@
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE DATABASE "capim_dash_development" ENCODING = 'unicode'[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE DATABASE "capim_dash_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8698744169706096240)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20241125201637)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8698744169706096240)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8698744169706096240)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20241125201637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "game_id" integer, "winner" character varying DEFAULT '', "game_state" character varying[] DEFAULT '{}', "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241125201637"]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-11-26 18:26:25.802699"], ["updated_at", "2024-11-26 18:26:25.802699"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8698744169706096240)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8698744169706096240)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20241125201637)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20241125201637"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8698744169706096240)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8698744169706096240)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20241125201637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winner" character varying DEFAULT '', "game_state" character varying[] DEFAULT '{}', "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241125201637"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8698744169706096240)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/home/index" for ::1 at 2024-11-27 13:36:31 -0300
+  
+ActiveRecord::ConnectionNotEstablished (connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+):
+  
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.10) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.10) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.10) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.10) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.10) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.10) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+railties (6.1.7.10) lib/rails/engine.rb:539:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2024-11-27 13:36:31 -0300
+  
+ActiveRecord::ConnectionNotEstablished (connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+):
+  
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.10) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.10) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.10) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.10) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.10) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.10) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+railties (6.1.7.10) lib/rails/engine.rb:539:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2024-11-27 13:36:56 -0300
+  
+ActiveRecord::ConnectionNotEstablished (connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+):
+  
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `public_send'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:882:in `new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:926:in `checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:905:in `try_to_checkout_new_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:866:in `acquire_connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:588:in `checkout'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:428:in `connection'
+activerecord (6.1.7.10) lib/active_record/connection_adapters/abstract/connection_pool.rb:1128:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:327:in `retrieve_connection'
+activerecord (6.1.7.10) lib/active_record/connection_handling.rb:283:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:611:in `connection'
+activerecord (6.1.7.10) lib/active_record/migration.rb:606:in `build_watcher'
+activerecord (6.1.7.10) lib/active_record/migration.rb:588:in `block in call'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.7.10) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.10) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.10) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.10) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.10) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.10) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.10) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.10) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.10) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+railties (6.1.7.10) lib/rails/engine.rb:539:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:07 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 121)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:09 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:37 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/" for ::1 at 2024-11-27 13:39:44 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.2ms | Allocations: 197)
+Completed 200 OK in 19ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 2461)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-11-27 13:39:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/home/index" for ::1 at 2024-11-27 13:39:57 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:40:11 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:40:11 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:40:16 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:40:50 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:41:15 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 5ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:41:16 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/" for ::1 at 2024-11-27 13:41:27 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.3ms | Allocations: 381)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 2693)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:41:36 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:41:36 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:43:39 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:43:39 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:47:52 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:48:28 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:48:28 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 28)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2024-11-27 13:50:02 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:50:24 -0300
+Processing by HomeController#index as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 34)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2024-11-27 13:50:33 -0300
+Processing by HomeController#index as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2024-11-27 13:52:22 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2024-11-27 13:55:02 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1882)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:55:10 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 49)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:55:11 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 47)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:55:46 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as */*
+HomeController#index called
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 102)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:57:03 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as */*
+HomeController#index called
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 100)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 13:57:35 -0300
+Processing by HomeController#index as */*
+HomeController#index called
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 46)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:00:59 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1999)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:28 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 68)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:29 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 71)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:40 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1999)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:41 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 72)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:41 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 70)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 14:03:41 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 67)
+
+
+Started GET "/" for ::1 at 2024-11-27 15:10:42 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:10:48 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:10:48 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:03 -0300
+Processing by HomeController#index as HTML
+HomeController#index called
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 214)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-11-27 15:11:03 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:39 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 69)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:40 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:40 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:40 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-27 15:11:40 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:05:06 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:05:06 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 28)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:06:36 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:06:36 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 28)
+
+
+Started GET "/home/" for ::1 at 2024-11-28 10:06:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-11-28 10:06:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2024-11-28 10:06:45 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:06:48 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:07:28 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:07:29 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:08:48 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Views):
+  
+Started GET "/home/index" for ::1 at 2024-11-28 10:18:08 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:18:08 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:23:53 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:29:55 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 1843)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:29:58 -0300
+Processing by HomeController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:31:01 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1980)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:32:31 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1980)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:32:40 -0300
+Processing by HomeController#index as HTML
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 59)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:38:01 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1980)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:39:48 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (uninitialized constant ApplicationController::Base):
+  
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2024-11-28 10:40:21 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.5ms | Allocations: 104)
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2327)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:45:16 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 9)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 523)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:45:16 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:45:35 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 1.1ms | Allocations: 291)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 3192)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:45:36 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 290)
+
+
+Started GET "/" for ::1 at 2024-11-28 10:45:37 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:45:51 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 6)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/home/index" for ::1 at 2024-11-28 10:46:06 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.1ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 511)
+
+
+Started GET "/" for ::1 at 2024-11-28 14:35:34 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 0.8ms | Allocations: 291)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 3192)
+
+
+Started GET "/rails/info/routes" for ::1 at 2024-11-28 14:35:43 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/giovani/.rvm/gems/ruby-3.2.3/gems/actionpack-6.1.7.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (Duration: 11.9ms | Allocations: 4613)
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/actionpack-6.1.7.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 9.0ms | Allocations: 1075)
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 28.3ms | Allocations: 8330)
+  Rendered layout /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/layouts/application.html.erb (Duration: 29.5ms | Allocations: 8576)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 9696)
+
+
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (22.8ms)[0m  [1m[32mINSERT INTO "games" ("winner", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["winner", "X"], ["created_at", "2024-11-28 17:38:40.267246"], ["updated_at", "2024-11-28 17:38:40.267246"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Load (1.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Started GET "/games" for ::1 at 2024-11-28 14:43:28 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/games"):
+  
+Started GET "/game" for ::1 at 2024-11-28 14:43:39 -0300
+Processing by GamesController#show as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 412)
+
+
+  
+NoMethodError (undefined method `attibutes' for Home::Serializer:Class):
+  
+app/serializers/games/serializer.rb:5:in `<class:Serializer>'
+app/serializers/games/serializer.rb:2:in `<module:Home>'
+app/serializers/games/serializer.rb:1:in `<main>'
+app/controllers/games_controller.rb:3:in `show'
+Started GET "/rails/info/routes" for ::1 at 2024-11-28 14:44:42 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/giovani/.rvm/gems/ruby-3.2.3/gems/actionpack-6.1.7.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (Duration: 9.4ms | Allocations: 4379)
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/actionpack-6.1.7.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.9ms | Allocations: 843)
+  Rendered /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 15.0ms | Allocations: 7518)
+  Rendered layout /home/giovani/.rvm/gems/ruby-3.2.3/gems/railties-6.1.7.10/lib/rails/templates/layouts/application.html.erb (Duration: 15.6ms | Allocations: 7751)
+Completed 200 OK in 18ms (Views: 17.3ms | Allocations: 8703)
+
+
+Started GET "/games" for ::1 at 2024-11-28 14:44:54 -0300
+Processing by GamesController#show as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 186)
+
+
+  
+NoMethodError (undefined method `attibutes' for Home::Serializer:Class):
+  
+app/serializers/games/serializer.rb:5:in `<class:Serializer>'
+app/serializers/games/serializer.rb:2:in `<module:Home>'
+app/serializers/games/serializer.rb:1:in `<main>'
+app/controllers/games_controller.rb:3:in `show'
+Started GET "/games" for ::1 at 2024-11-28 14:45:47 -0300
+Processing by GamesController#show as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 334)
+
+
+  
+NoMethodError (undefined method `attibutes' for Games::Serializer:Class):
+  
+app/serializers/games/serializer.rb:5:in `<class:Serializer>'
+app/serializers/games/serializer.rb:2:in `<module:Games>'
+app/serializers/games/serializer.rb:1:in `<main>'
+app/controllers/games_controller.rb:3:in `show'
+Started GET "/games" for ::1 at 2024-11-28 14:46:17 -0300
+Processing by GamesController#show as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:3:in `show'
+Completed 200 OK in 36ms (Views: 0.6ms | ActiveRecord: 9.9ms | Allocations: 9194)
+
+
+Started GET "/games" for ::1 at 2024-11-28 14:51:00 -0300
+Processing by GamesController#show as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:3:in `show'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 3771)
+
+
+Started GET "/games/1" for ::1 at 2024-11-28 14:51:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/games/1"):
+  
+Started GET "/games" for ::1 at 2024-11-28 14:51:22 -0300
+Processing by GamesController#show as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:3:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 728)
+
+
