@@ -1,7 +1,7 @@
-module Games
-  class Serializer
-    include JSONAPI::Serializer
+# module Games
+#   class Serializer
+#     include JSONAPI::Serializer
 
-    attibutes :winner    
-  end
-end
+#     attibutes :winner    
+#   end
+# end
