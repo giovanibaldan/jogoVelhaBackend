@@ -42,3 +42,12 @@ endereço para testar no postman
 
 - rails db:rollback
 desfazer as últimas migrates no scheema
+
+{
+    "winner": "X",
+    "game_state": [
+      "X", "O", "X",
+      "O", "O", "X",
+      "X", "O", ""
+    ]
+}

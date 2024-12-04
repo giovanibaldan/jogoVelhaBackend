@@ -2062,3 +2062,461 @@ Processing by GamesController#index as */*
 Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 2.2ms | Allocations: 7427)
 
 
+Started GET "/games" for ::1 at 2024-12-04 11:28:10 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 5.1ms | Allocations: 5507)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:28:11 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1411)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:29:15 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (3.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 3.7ms | Allocations: 1410)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:29:20 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1410)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:32:27 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:36:23 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:43:38 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 4.4ms | Allocations: 5456)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:45:11 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.6ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:45:31 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:46:27 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:46:30 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1397)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:46:55 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:46:59 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:02 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:06 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:17 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:19 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:28 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1397)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:31 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:34 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:36 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:47:57 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:48:01 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:48:04 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games/" for ::1 at 2024-12-04 11:49:10 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1396)
+
+
+Started PATCH "/games/1" for ::1 at 2024-12-04 11:51:14 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "games":{
+        "winner":{
+            "X"
+        },
+        "game_state": {[
+            "X",
+            "O",
+            "X",
+            "O",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]}
+    }
+}
+Processing by GamesController#update as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 140)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (unexpected token at '{
+    "games":{
+        "winner":{
+            "X"
+        },
+        "game_state": {[
+            "X",
+            "O",
+            "X",
+            "O",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]}
+    }
+}'):
+  
+app/controllers/games_controller.rb:40:in `update'
+Started GET "/games/" for ::1 at 2024-12-04 11:52:34 -0300
+Processing by GamesController#index as */*
+  Parameters: {"games"=>{"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}, "game"=>{}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1395)
+
+
+Started PATCH "/games/1" for ::1 at 2024-12-04 11:52:42 -0300
+Processing by GamesController#update as */*
+  Parameters: {"games"=>{"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}, "id"=>"1", "game"=>{}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+Completed 400 Bad Request in 9ms (ActiveRecord: 0.4ms | Allocations: 2146)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: game):
+  
+app/controllers/games_controller.rb:57:in `game_params'
+app/controllers/games_controller.rb:41:in `update'
+Started GET "/games/1" for ::1 at 2024-12-04 11:53:38 -0300
+Processing by GamesController#show as */*
+  Parameters: {"games"=>{"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}, "id"=>"1", "game"=>{}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:9:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 680)
+
+
+Started PATCH "/games/1" for ::1 at 2024-12-04 11:54:16 -0300
+Processing by GamesController#update as */*
+  Parameters: {"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""], "id"=>"1", "game"=>{"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mGame Update (0.8ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "game_state" = $2, "updated_at" = $3 WHERE "games"."id" = $4[0m  [["winner", "X"], ["game_state", "{X,O,X,X,\"\",\"\",X,\"\",\"\"}"], ["updated_at", "2024-12-04 14:54:16.040736"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 3251)
+
+
+Started PATCH "/games/1" for ::1 at 2024-12-04 11:54:25 -0300
+Processing by GamesController#update as */*
+  Parameters: {"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""], "id"=>"1", "game"=>{"winner"=>"X", "game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 932)
+
+
+Started PATCH "/games/1" for ::1 at 2024-12-04 11:54:49 -0300
+Processing by GamesController#update as */*
+  Parameters: {"game_state"=>["X", "O", "X", "X", "", "", "X", "", ""], "id"=>"1", "game"=>{"game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 919)
+
+
+Started GET "/games/" for ::1 at 2024-12-04 11:54:57 -0300
+Processing by GamesController#index as */*
+  Parameters: {"game_state"=>["X", "O", "X", "X", "", "", "X", "", ""], "game"=>{"game_state"=>["X", "O", "X", "X", "", "", "X", "", ""]}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 1398)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:55:00 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started PATCH "/games/4" for ::1 at 2024-12-04 11:57:12 -0300
+Processing by GamesController#update as */*
+  Parameters: {"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""], "id"=>"4", "game"=>{"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""]}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mGame Update (0.2ms)[0m  [1m[33mUPDATE "games" SET "game_state" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["game_state", "{X,O,X,O,O,X,X,O,\"\"}"], ["updated_at", "2024-12-04 14:57:12.739640"], ["id", 4]]
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 2584)
+
+
+Started PATCH "/games/4/game_logic" for ::1 at 2024-12-04 11:57:23 -0300
+Processing by GamesController#game_logic as */*
+  Parameters: {"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""], "id"=>"4", "game"=>{"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""]}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:48:in `game_logic'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/game.rb:17:in `verify_winner'
+  [1m[36mGame Update (0.2ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["winner", "O"], ["updated_at", "2024-12-04 14:57:23.325924"], ["id", 4]]
+  ↳ app/models/game.rb:17:in `verify_winner'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/game.rb:17:in `verify_winner'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 2438)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:57:25 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 11:59:06 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:18:50 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 17ms (Views: 17.0ms | ActiveRecord: 3.6ms | Allocations: 5495)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:21:36 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:22:36 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:22:46 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:22:55 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:22:58 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:22:59 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1396)
+
+
+Started GET "/games/" for ::1 at 2024-12-04 12:24:19 -0300
+Processing by GamesController#index as */*
+  Parameters: {"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""], "game"=>{"game_state"=>["X", "O", "X", "O", "O", "X", "X", "O", ""]}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 2.9ms | Allocations: 3612)
+
+
+Started PATCH "/games/2" for ::1 at 2024-12-04 12:25:24 -0300
+Processing by GamesController#update as */*
+  Parameters: {"winner"=>"Empate", "id"=>"2", "game"=>{"winner"=>"Empate"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mGame Update (0.2ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["winner", "Empate"], ["updated_at", "2024-12-04 15:25:24.020448"], ["id", 2]]
+  ↳ app/controllers/games_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:41:in `update'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.1ms | Allocations: 2775)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:25:35 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:25:45 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:25:47 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1397)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:25:52 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:26:09 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1396)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:26:11 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1397)
+
+
+Started GET "/games" for ::1 at 2024-12-04 12:26:24 -0300
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1396)
+
+

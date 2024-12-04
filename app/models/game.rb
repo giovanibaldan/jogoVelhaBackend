@@ -27,7 +27,7 @@ class Game < ApplicationRecord
   # Método para verificar o empate
   def verify_draw
     if winner == "" && game_state.all? { |cell| cell != "" }
-      self.winner = "Draw"
+      self.winner = "Empate"
     end
   end
 
