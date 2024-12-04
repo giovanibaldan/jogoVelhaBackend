@@ -34,5 +34,11 @@ criar uma migrate
 - rails db:migrate
 subir as novas migrates
 
+- rails s
+subir o servidor rails
+
+- http://localhost:3000/games/
+endereço para testar no postman
+
 - rails db:rollback
 desfazer as últimas migrates no scheema
