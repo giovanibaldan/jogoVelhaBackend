@@ -43,8 +43,8 @@ class GamesController < ApplicationController
     end
   end
 
-  # O controller game_logic serve para verificar o vencedor
-  def game_logic
+  # O controller check_win serve para verificar o vencedor
+  def check_win
     game = Game.find(params[:id])
     game.verify_winner
     render json: game, status: :ok

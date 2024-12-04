@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # :destroy = Vai servir para deletar um jogo
   # :update = Inserir dados na tabela (teste)
     member do
-      patch 'game_logic'
+      patch 'check_win'
       patch 'reset'
       get 'show_game_state'
       # :reset = Vai servir para resetar o jogo atual
