@@ -9,14 +9,16 @@ class GamesController < ApplicationController
     game = Game.find(params[:id])
     render json: game, status: :ok
   end
-  # O controller create serve para criar um novo jogo
+
+  # O controller create serve para criar um novo jogo e com os parametros da partida
   # O método verifica o id do último jogo e incrementa 1 para criar um novo jogo
   def create
     last_game = Game.order(:id).last
     next_id = last_game ? last_game.id + 1 : 1
-    game = Game.create(id: next_id)
+    game = Game.create(id: next_id, winner: game_params[:winner], game_state: game_params[:game_state])
     render json: game, status: :created
   end
+
   # O controller destroy serve para deletar um jogo
   def destroy
     game = Game.find(params[:id])
