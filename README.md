@@ -6,6 +6,8 @@ subir a aplicação
 - rails db:create
 criar uma migrate
 
+- rails generate migration AddEmailToUsers email:string
+
 - rails db:migrate
 subir as novas migrates
 
