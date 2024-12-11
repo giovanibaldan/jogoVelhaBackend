@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   def index
     render json: Game.all, status: :ok
   end
+  
   # O controller show serve para mostrar um jogo específico
   def show
     game = Game.find(params[:id])
@@ -19,24 +20,6 @@ class GamesController < ApplicationController
     render json: game, status: :created
   end
 
-  # O controller destroy serve para deletar um jogo
-  def destroy
-    game = Game.find(params[:id])
-    game.destroy
-    render json: game, status: :ok
-  end
-  # O controller reset serve para resetar o jogo atual
-  def reset
-    game = Game.find(params[:id])
-    game.reset
-    render json: game, status: :ok
-  end
-  # O controller game_state serve para mostrar o estado que um jogo acabou
-  def show_game_state
-    game = Game.find(params[:id])
-    render json: game.game_state, status: :ok
-  end
-
   # O controller update serve para inserir dados nos jogos apenas para fins de teste
   def update
     game = Game.find(params[:id])
@@ -45,12 +28,31 @@ class GamesController < ApplicationController
     end
   end
 
-  # O controller check_win serve para verificar o vencedor
-  def check_win
+  # O controller destroy serve para deletar um jogo
+  def destroy
     game = Game.find(params[:id])
-    game.verify_winner
+    game.destroy
     render json: game, status: :ok
   end
+
+
+  # O controller check_win serve para verificar o vencedor
+  # def check_win
+  #   game = Game.find(params[:id])
+  #   game.verify_winner
+  #   render json: game, status: :ok
+  # end
+  #   # O controller reset serve para resetar o jogo atual
+  # def reset
+  #   game = Game.find(params[:id])
+  #   game.reset
+  #   render json: game, status: :ok
+  # end
+  # O controller game_state serve para mostrar o estado que um jogo acabou
+  # def show_game_state
+  #   game = Game.find(params[:id])
+  #   render json: game.game_state, status: :ok
+  # end
 
   # Private significa que os métodos abaixo são privados e só podem ser acessados por outros métodos da classe
   private
