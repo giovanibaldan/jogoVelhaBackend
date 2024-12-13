@@ -1,0 +1,1198 @@
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (14.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "capim_dash_test"[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE DATABASE "capim_dash_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1602477858468503415)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20241125201637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "winner" character varying DEFAULT '', "game_state" character varying[] DEFAULT '{}', "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241125201637"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ModifyGameStateInGames (20241129123858)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "games" ALTER COLUMN "game_state" TYPE character varying[], ALTER COLUMN "game_state" SET DEFAULT '{"","","","","","","","",""}'[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241129123858"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRematchState (20241206223647)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "games" ADD "rematch_state" boolean DEFAULT FALSE[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20241206223647"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2024-12-12 19:46:40.735283"], ["updated_at", "2024-12-12 19:46:40.735283"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1602477858468503415)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2024-12-12 19:47:46.561969"], ["updated_at", "2024-12-12 19:47:46.561969"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,X,X,O,O,\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-12 19:47:46.570095"], ["updated_at", "2024-12-12 19:47:46.570095"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Empate"], ["game_state", "{X,O,X,X,O,O,O,X,X}"], ["created_at", "2024-12-12 19:47:46.571454"], ["updated_at", "2024-12-12 19:47:46.571454"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("game_state", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["game_state", "{X,\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-12 19:47:46.572534"], ["updated_at", "2024-12-12 19:47:46.572534"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (1.5ms)[0m  [1m[32mINSERT INTO "games" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2024-12-13 13:06:10.135992"], ["updated_at", "2024-12-13 13:06:10.135992"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,X,X,O,O,\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 13:06:10.158636"], ["updated_at", "2024-12-13 13:06:10.158636"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Empate"], ["game_state", "{X,O,X,X,O,O,O,X,X}"], ["created_at", "2024-12-13 13:06:10.163900"], ["updated_at", "2024-12-13 13:06:10.163900"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("game_state", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["game_state", "{X,\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 13:06:10.169658"], ["updated_at", "2024-12-13 13:06:10.169658"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2024-12-13 14:36:28.388790"], ["updated_at", "2024-12-13 14:36:28.388790"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,X,X,O,O,\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 14:36:28.400822"], ["updated_at", "2024-12-13 14:36:28.400822"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Empate"], ["game_state", "{X,O,X,X,O,O,O,X,X}"], ["created_at", "2024-12-13 14:36:28.403385"], ["updated_at", "2024-12-13 14:36:28.403385"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("game_state", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["game_state", "{X,\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 14:36:28.405666"], ["updated_at", "2024-12-13 14:36:28.405666"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2024-12-13 14:36:41.088940"], ["updated_at", "2024-12-13 14:36:41.088940"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,X,X,O,O,\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 14:36:41.101988"], ["updated_at", "2024-12-13 14:36:41.101988"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Empate"], ["game_state", "{X,O,X,X,O,O,O,X,X}"], ["created_at", "2024-12-13 14:36:41.106139"], ["updated_at", "2024-12-13 14:36:41.106139"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("game_state", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["game_state", "{X,\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"}"], ["created_at", "2024-12-13 14:36:41.110864"], ["updated_at", "2024-12-13 14:36:41.110864"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.618801"], ["updated_at", "2024-12-13 14:44:13.618801"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.639178"], ["updated_at", "2024-12-13 14:44:13.639178"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"Player 1"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.656344"], ["updated_at", "2024-12-13 14:44:13.656344"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 1044)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"Player 1"}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.662462"], ["updated_at", "2024-12-13 14:44:13.662462"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 884)
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:44:13.695816"], ["updated_at", "2024-12-13 14:44:13.695816"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 832)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.699334"], ["updated_at", "2024-12-13 14:44:13.699334"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"game_state"=>["O", "X", "O", "X", "O", "X", "O", "X", "O"], "winner"=>"Player 2"}, "id"=>"19"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.7ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "game_state" = $2, "updated_at" = $3 WHERE "games"."id" = $4[0m  [["winner", "Player 2"], ["game_state", "{O,X,O,X,O,X,O,X,O}"], ["updated_at", "2024-12-13 14:44:13.703202"], ["id", 19]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 929)
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.708662"], ["updated_at", "2024-12-13 14:44:13.708662"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"Player 1"}, "id"=>"20"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 585)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.715254"], ["updated_at", "2024-12-13 14:44:13.715254"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}, "id"=>"21"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.3ms)[0m  [1m[33mUPDATE "games" SET "winner" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["winner", ""], ["updated_at", "2024-12-13 14:44:13.719148"], ["id", 21]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 723)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:44:13.722934"], ["updated_at", "2024-12-13 14:44:13.722934"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#destroy as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.3ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 22]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 555)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:02.381440"], ["updated_at", "2024-12-13 14:45:02.381440"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:02.404310"], ["updated_at", "2024-12-13 14:45:02.404310"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 926)
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"Player 1"}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:02.439118"], ["updated_at", "2024-12-13 14:45:02.439118"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 1044)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:45:02.447940"], ["updated_at", "2024-12-13 14:45:02.447940"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 830)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:47.593448"], ["updated_at", "2024-12-13 14:45:47.593448"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:47.612597"], ["updated_at", "2024-12-13 14:45:47.612597"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"Player 1"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "Player 1"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:45:47.637145"], ["updated_at", "2024-12-13 14:45:47.637145"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 1046)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:45:47.643476"], ["updated_at", "2024-12-13 14:45:47.643476"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 831)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:48:10.539473"], ["updated_at", "2024-12-13 14:48:10.539473"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:48:10.558167"], ["updated_at", "2024-12-13 14:48:10.558167"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:48:10.583067"], ["updated_at", "2024-12-13 14:48:10.583067"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 1046)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:48:10.588990"], ["updated_at", "2024-12-13 14:48:10.588990"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 831)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:51:48.425751"], ["updated_at", "2024-12-13 14:51:48.425751"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:51:48.460675"], ["updated_at", "2024-12-13 14:51:48.460675"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 928)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:51:48.475586"], ["updated_at", "2024-12-13 14:51:48.475586"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 1043)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.7ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:51:48.484227"], ["updated_at", "2024-12-13 14:51:48.484227"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 831)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.7ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:52:06.093163"], ["updated_at", "2024-12-13 14:52:06.093163"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:52:06.118715"], ["updated_at", "2024-12-13 14:52:06.118715"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:52:06.147671"], ["updated_at", "2024-12-13 14:52:06.147671"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 1044)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:52:06.154022"], ["updated_at", "2024-12-13 14:52:06.154022"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 831)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:07.651986"], ["updated_at", "2024-12-13 14:56:07.651986"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:07.671339"], ["updated_at", "2024-12-13 14:56:07.671339"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:07.696649"], ["updated_at", "2024-12-13 14:56:07.696649"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1150)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:56:07.703590"], ["updated_at", "2024-12-13 14:56:07.703590"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 894)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:27.439108"], ["updated_at", "2024-12-13 14:56:27.439108"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:27.469907"], ["updated_at", "2024-12-13 14:56:27.469907"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 928)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:56:27.481289"], ["updated_at", "2024-12-13 14:56:27.481289"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1149)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:56:27.488114"], ["updated_at", "2024-12-13 14:56:27.488114"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 894)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:25.402267"], ["updated_at", "2024-12-13 14:58:25.402267"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 961)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:25.433301"], ["updated_at", "2024-12-13 14:58:25.433301"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 926)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:25.472872"], ["updated_at", "2024-12-13 14:58:25.472872"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 1044)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.8ms)[0m  [1m[32mINSERT INTO "games" ("id", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["game_state", nil], ["created_at", "2024-12-13 14:58:25.481632"], ["updated_at", "2024-12-13 14:58:25.481632"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 831)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:43.502071"], ["updated_at", "2024-12-13 14:58:43.502071"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:43.525881"], ["updated_at", "2024-12-13 14:58:43.525881"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 923)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 14:58:43.560174"], ["updated_at", "2024-12-13 14:58:43.560174"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 1057)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 9ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 3331)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:20.461519"], ["updated_at", "2024-12-13 18:09:20.461519"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:20.481595"], ["updated_at", "2024-12-13 18:09:20.481595"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:20.489291"], ["updated_at", "2024-12-13 18:09:20.489291"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1056)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:42.914266"], ["updated_at", "2024-12-13 18:09:42.914266"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:42.927693"], ["updated_at", "2024-12-13 18:09:42.927693"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:09:42.935048"], ["updated_at", "2024-12-13 18:09:42.935048"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1056)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:10:11.599314"], ["updated_at", "2024-12-13 18:10:11.599314"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:10:11.612689"], ["updated_at", "2024-12-13 18:10:11.612689"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:10:11.620732"], ["updated_at", "2024-12-13 18:10:11.620732"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1056)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2120)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:11:50.125320"], ["updated_at", "2024-12-13 18:11:50.125320"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:11:50.138260"], ["updated_at", "2024-12-13 18:11:50.138260"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:11:50.145516"], ["updated_at", "2024-12-13 18:11:50.145516"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1057)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:15:13.745516"], ["updated_at", "2024-12-13 18:15:13.745516"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:15:13.757046"], ["updated_at", "2024-12-13 18:15:13.757046"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:15:13.774153"], ["updated_at", "2024-12-13 18:15:13.774153"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1057)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Destroy (0.3ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" IS NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#destroy as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 0ms (ActiveRecord: 0.1ms | Allocations: 221)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:18:50.503948"], ["updated_at", "2024-12-13 18:18:50.503948"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:18:50.517804"], ["updated_at", "2024-12-13 18:18:50.517804"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:18:50.524626"], ["updated_at", "2024-12-13 18:18:50.524626"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1056)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 2120)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:20:33.111497"], ["updated_at", "2024-12-13 18:20:33.111497"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:20:33.123332"], ["updated_at", "2024-12-13 18:20:33.123332"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"54"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:20:33.147101"], ["updated_at", "2024-12-13 18:20:33.147101"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1057)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:20:33.162923"], ["updated_at", "2024-12-13 18:20:33.162923"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 898)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:01.107281"], ["updated_at", "2024-12-13 18:23:01.107281"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:01.121079"], ["updated_at", "2024-12-13 18:23:01.121079"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"56"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:01.128966"], ["updated_at", "2024-12-13 18:23:01.128966"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1056)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 2120)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:01.137456"], ["updated_at", "2024-12-13 18:23:01.137456"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:13.757340"], ["updated_at", "2024-12-13 18:23:13.757340"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:13.770776"], ["updated_at", "2024-12-13 18:23:13.770776"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"59"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:13.788735"], ["updated_at", "2024-12-13 18:23:13.788735"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1057)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:13.795681"], ["updated_at", "2024-12-13 18:23:13.795681"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:19.239730"], ["updated_at", "2024-12-13 18:23:19.239730"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:19.254952"], ["updated_at", "2024-12-13 18:23:19.254952"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:19.262287"], ["updated_at", "2024-12-13 18:23:19.262287"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1056)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2120)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:23:19.270440"], ["updated_at", "2024-12-13 18:23:19.270440"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:27:56.471860"], ["updated_at", "2024-12-13 18:27:56.471860"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:27:56.485386"], ["updated_at", "2024-12-13 18:27:56.485386"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 923)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:27:56.502410"], ["updated_at", "2024-12-13 18:27:56.502410"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1057)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:27:56.509156"], ["updated_at", "2024-12-13 18:27:56.509156"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:29:17.561801"], ["updated_at", "2024-12-13 18:29:17.561801"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 959)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:29:17.576418"], ["updated_at", "2024-12-13 18:29:17.576418"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"68"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 68], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 924)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:29:17.583722"], ["updated_at", "2024-12-13 18:29:17.583722"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1057)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 18:29:17.591652"], ["updated_at", "2024-12-13 18:29:17.591652"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#destroy as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.2ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 69]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 570)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:33.795279"], ["updated_at", "2024-12-13 19:01:33.795279"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:33.818286"], ["updated_at", "2024-12-13 19:01:33.818286"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"71"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 925)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:33.825678"], ["updated_at", "2024-12-13 19:01:33.825678"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1056)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:33.834130"], ["updated_at", "2024-12-13 19:01:33.834130"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:50.945641"], ["updated_at", "2024-12-13 19:01:50.945641"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 957)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:50.965961"], ["updated_at", "2024-12-13 19:01:50.965961"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"74"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 925)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>["X", "O", "X", "O", "X", "O", "X", "O", "X"], "winner"=>"X"}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("id", "winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:50.972978"], ["updated_at", "2024-12-13 19:01:50.972978"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1056)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"game_state"=>"", "winner"=>""}}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" ORDER BY "games"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[31mUnpermitted parameter: :game_state[0m
+[31mUnpermitted parameter: :game_state[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 2119)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("winner", "game_state", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["winner", "X"], ["game_state", "{X,O,X,O,X,O,X,O,X}"], ["created_at", "2024-12-13 19:01:50.981163"], ["updated_at", "2024-12-13 19:01:50.981163"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+Processing by GamesController#destroy as HTML
+  Parameters: {"id"=>"75"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.2ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 75]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 570)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

@@ -1,5 +1,9 @@
 class Game < ApplicationRecord
   # Método para resetar o jogo
+  
+  validates :winner, presence: true
+  validates :game_state, presence: true
+
   def reset
     self.winner = ""
     self.game_state = ["", "", "", "", "", "", "", "", ""]

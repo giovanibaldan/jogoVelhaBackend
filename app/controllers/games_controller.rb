@@ -13,11 +13,35 @@ class GamesController < ApplicationController
 
   # O controller create serve para criar um novo jogo e com os parametros da partida
   # O método verifica o id do último jogo e incrementa 1 para criar um novo jogo
+  # def create
+  #   last_game = Game.order(:id).last
+  #   next_id = last_game ? last_game.id + 1 : 1
+  #   game = Game.create(id: next_id, winner: game_params[:winner], game_state: game_params[:game_state])
+  #   render json: game, status: :created
+  # end
+
+  # def create
+  #   last_game = Game.order(:id).last
+  #   next_id = last_game ? last_game.id + 1 : 1
+  #   game = Game.create(id: next_id, winner: game_params[:winner], game_state: game_params[:game_state])
+  
+  #   if (game_params[:winner] && game_params[:game_state])
+  #     render json: game, status: :created
+  #   else
+  #     render json: game.errors, status: :unprocessable_entity
+  #   end
+  # end
+  
   def create
     last_game = Game.order(:id).last
     next_id = last_game ? last_game.id + 1 : 1
-    game = Game.create(id: next_id, winner: game_params[:winner], game_state: game_params[:game_state])
-    render json: game, status: :created
+    game = Game.new(id: next_id, winner: game_params[:winner], game_state: game_params[:game_state])
+  
+    if game.save
+      render json: game, status: :created
+    else
+      render json: game.errors, status: :unprocessable_entity
+    end
   end
 
   # O controller update serve para inserir dados nos jogos apenas para fins de teste
