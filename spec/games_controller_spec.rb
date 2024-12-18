@@ -6,6 +6,10 @@ RSpec.describe GamesController, type: :controller do
     { winner: "X", game_state: ["X", "O", "X", "O", "X", "O", "X", "O", "X"] }
   }
 
+  let(:valid_attributes2) {
+    { winner: 'O', game_state: ["X", "O", "X", "X", "O", "", "O", "O", "X"] }
+  }
+
   let(:invalid_attributes) {
     { winner: nil, game_state: nil }
   }
@@ -46,13 +50,18 @@ RSpec.describe GamesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       it "update a Game" do
-        
+        game = Game.create! valid_attributes
+        put :update, params: { id: game.to_param, game: valid_attributes2 }
+        game.reload
+        expect(game.winner).to eq('O')
       end
     end
 
     context "with invalid params" do
-      it "update a Game wrong" do
-        
+      it "update a Game with bad paramters" do
+        game = Game.create! valid_attributes
+        put :update, params: {id: game.to_param, game: invalid_attributes}
+        expect(response).to_not be_successful
       end
     end
   end

@@ -49,6 +49,8 @@ class GamesController < ApplicationController
     game = Game.find(params[:id])
     if game.update(game_params)
       render json: game, status: :ok
+    else
+      render json: game.errors, status: :unprocessable_entity
     end
   end
 
