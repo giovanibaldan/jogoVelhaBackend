@@ -94,6 +94,10 @@ Veja o repositório do frontend [clicando aqui](https://github.com/giovanibaldan
   </table>
 </br>
 
+### Resultado dos testes
+<img width="776px" src="https://github.com/user-attachments/assets/5269369f-ab1b-47ba-b721-5ed55feb16cb"/>
+<br>
+
 <h3 align="left"> Levantamento de Requisitos: </h3>
 <h4 align="left"> Requisitos Funcionais do Back-end: </h4>
 
