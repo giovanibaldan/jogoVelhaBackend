@@ -1,3 +1,5 @@
+Veja o repositório do frontend [clicando aqui](https://github.com/giovanibaldan/jogo-velha-frontend)
+
 #### 1. Baixando o Projeto:
 
 * Primeiro, você precisa obter uma cópia do projeto em sua máquina. Existem duas maneiras de fazer isso:
